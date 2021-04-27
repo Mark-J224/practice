@@ -1,8 +1,11 @@
 #include <stdio.h> 
+#include <pthread.h> 
 #include <string.h> 
 #include <sys/types.h> 
 #include <sys/wait.h> 
 #include <unistd.h>
+#include <stdio.h>
+
 
  int main() { 
     printf("Hello World \n");
@@ -30,9 +33,5 @@
         wait(0); 
         printf("This is the parent process: %d \n", getpid()); 
     }
-
-
-
-
 
  }
