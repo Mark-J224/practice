@@ -5,10 +5,25 @@
 #include <sys/wait.h> 
 #include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h> 
 
+
+void testPrep(char *input, char *output) { 
+    int j = 0;
+    for(int i = (strlen(input)-1); i >= 0; i--) { 
+        output[j] = input[i]; 
+        j++; 
+    } 
+    printf("Input was: %s, Output is: %s \n", input, output); 
+}
 
  int main() { 
     printf("Hello World \n");
+
+     char *input = "Pancakes"; 
+     char *output = malloc(sizeof(char)*strlen(input)); 
+    testPrep(input, output); 
+    free(output); 
 
     char name[] = "Mark"; 
 
@@ -32,6 +47,6 @@
     }else if(process != -1) { 
         wait(0); 
         printf("This is the parent process: %d \n", getpid()); 
-    }
+    } 
 
  }
